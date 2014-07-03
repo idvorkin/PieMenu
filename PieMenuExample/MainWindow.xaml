@@ -1,0 +1,75 @@
+﻿<Window x:Class="PieMenuExample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:p="clr-namespace:PieInTheSky;assembly=PieInTheSky"
+        Title="MainWindow" Height="600" Width="600" AllowsTransparency="True" WindowStyle="None"
+        >
+        <Window.Background>
+            <SolidColorBrush Opacity="0.01" Color="White"/>
+        </Window.Background>
+
+
+        <Canvas>
+
+        <p:PieMenu x:Name="Menu1" 
+                    Background="SteelBlue"
+                    SelectedBackground="LightBlue"
+                   FontSize="20" Radius="140" InnerRadius="0"
+                   RotateText="False"
+                   Height="539" Width="600" Canvas.Top="28"
+                   >
+            <p:PieMenuItem Header="Augment" Background="DarkGreen">
+            </p:PieMenuItem>
+
+            <p:PieMenuItem Header="Topic">
+                <p:PieMenuItem Header="Picker" />
+                <p:PieMenuItem Header="LRU1" />
+                <p:PieMenuItem Header="LRU2" />
+                <p:PieMenuItem Header="LRU3" />
+            </p:PieMenuItem>
+            <p:PieMenuItem Header="Person">
+                <p:PieMenuItem Header="Next Meeting" />
+                <p:PieMenuItem Header="Today's Meeting" />
+                <p:PieMenuItem Header="Previous\r\n Meeting" />
+            </p:PieMenuItem>
+            <p:PieMenuItem Header="Day">
+                <p:PieMenuItem Header="Today" Click="PieMenuItem_Click"/>
+                <p:PieMenuItem Header="Yesterday" Command="NotACommand"/>
+                <p:PieMenuItem Header="This Week" Command="NotACommand"/>
+            </p:PieMenuItem>
+        </p:PieMenu>
+
+        <p:PieMenu x:Name="Menu2"
+                    Visibility="Hidden"
+                   Canvas.Left="100"
+                   Canvas.Top="100"
+                   Background="Blue"
+                   SelectedBackground="LightBlue"
+                   Foreground="White"
+                   BorderBrush="Red"
+                   SectorGap="10"
+                   Gap="10"
+                   Radius="100"
+                   InnerRadius="0"
+                   RotateText="False"
+                   Rotation="180"
+                   MenuSector="180">
+            <p:PieMenuItem Header="Item 1" BorderThickness="1" SubMenuSector="90">
+                <p:PieMenuItem Header="Item 1.1" />
+                <p:PieMenuItem Header="Item 1.2" />
+                <p:PieMenuItem Header="Item 1.3" />
+            </p:PieMenuItem>
+            <p:PieMenuItem Header="Item 2" BorderThickness="2" BorderBrush="Green" SubMenuSector="60">
+                <p:PieMenuItem Header="Item 2.1" />
+                <p:PieMenuItem Header="Item 2.2" />
+            </p:PieMenuItem>
+            <p:PieMenuItem Header="Item 3" FontFamily="Times New Roman" FontStyle="Italic" FontSize="14" Background="Green" Foreground="Black" >
+                <p:PieMenuItem Header="Item 3.1" />
+                <p:PieMenuItem Header="Item 3.2" />
+                <p:PieMenuItem Header="Item 3.3" />
+                <p:PieMenuItem Header="Item 3.4" />
+            </p:PieMenuItem>
+        </p:PieMenu>
+
+    </Canvas>
+</Window>
