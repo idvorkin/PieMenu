@@ -22,6 +22,9 @@ namespace PieMenuExample
         public MainWindow()
         {
             InitializeComponent();
+            this.PeopeList.ItemsSource = "IgorD;AmmonL;ToriS;SeanSe".Split(';');
+            this.PeopeList.SelectedIndex = 0;
+
         }
 
         private void PieMenuItem_Click(object sender, RoutedEventArgs e)
@@ -41,6 +44,28 @@ namespace PieMenuExample
             if (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl))
             {
                 this.DragMove();
+            }
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void TimeMachine_OnClick(object sender, RoutedEventArgs e)
+        {
+            ToggleTimeMachineVisibility();
+        }
+
+        private void ToggleTimeMachineVisibility()
+        {
+            if (TimeMachineDatePicker.IsVisible)
+            {
+                TimeMachineDatePicker.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                TimeMachineDatePicker.Visibility = Visibility.Visible;
             }
         }
     }
