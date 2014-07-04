@@ -28,5 +28,20 @@ namespace PieMenuExample
         {
             System.Console.WriteLine("{0} clicked", (sender as PieInTheSky.PieMenuItem).Header);
         }
+
+        private void MainWindow_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // The goal is to be able to come up with a way to move the window given it has windowstyle=none (which is required for transparency).
+
+            // DragMove is the way to instantiate a move, but the only time I can get DragMove() to work is from primary mouse button down.
+            // without the if statement on the control key, the window will eat the mouse clicks, and the pie menu clicks will not occur.
+            // Surprisingly, C-Click only works if i'm within the window but not on a pie menu.
+
+            base.OnMouseLeftButtonDown(e);
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl))
+            {
+                this.DragMove();
+            }
+        }
     }
 }
